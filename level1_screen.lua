@@ -39,17 +39,20 @@ local questionText
 
 --the alternate numbers randomly generated
 local alternateNumber1
-local alternateNumber2  
+local alternateNumber2
+local alternateNumber3  
 
 -- boolean variables telling me which answer box was touched
 local answerboxAlreadyTouched
 local alternateAnswerBox1AlreadyTouched
 local alternateAnswerBox2AlreadyTouched
+local alternateAnswerBox3AlreadyTouched
 
 --create answerbox alternate answers and the boxes to show them
 local answerbox
 local alternateAnswerBox1
 local alternateAnswerBox2
+local alternateAnswerBox3
 
 -- the black box where the user will drag the answer
 local userAnswerBoxPlaceholder
@@ -119,12 +122,14 @@ local function DisplayQuestion()
 
 local function DisplayAnswers()
         local alternateNumber1
-        local alternateNumber2     
+        local alternateNumber2
+        local alternateNumber3     
         
         --make sure boxes are not clicked at the beginning
         answerboxAlreadyTouched = false
         alternateAnswerBox1AlreadyTouched = false
         alternateAnswerBox2AlreadyTouched = false
+        alternateAnswerBox3AlreadyTouched = false
 
         --set response text to nothing
         responseText.text = ""         
@@ -137,6 +142,9 @@ local function DisplayAnswers()
         --set random number to alternate option
         alternateAnswerBox2.text = alternateNumber2
 
+        alternateNumber3 = answer + math.random(3, 5)
+        alternateAnswerBox3.text = alternateNumber3
+
         
         answerbox.text = answer
 -------------------------------------------------------------------------------------------
@@ -145,6 +153,7 @@ local function DisplayAnswers()
 -----------------------------------------------------------------------------------------
     alternateAnswerBox1.x = display.contentWidth * 0.9
     alternateAnswerBox2.x = display.contentWidth * 0.9
+    alternateAnswerBox3.x = display.contentWidth * 0.9
     answerbox.x = display.contentWidth * 0.9
 
     answerbox.y = math.random(1,3)
